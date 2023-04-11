@@ -61,12 +61,19 @@ CUDA_VERSION=121 python setup.py install
 cd ..
 ```
 
-6. Compile Apex (for Flash attention, needs CUDA 11.7 above) [howto src](https://github.com/NVIDIA/apex/#linux)
+6. Add Flash Attention
 
 ```bash
-git clone https://github.com/NVIDIA/apex
-cd apex
-pip install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
+git clone https://github.com/HazyResearch/flash-attention.git
+cd flash-attention
+python setup.py install
+cd csrc/layer_norm
+pip install .
+cd ../rotary
+pip install .
+cd ../fused_dense_lib
+pip install .
+cd ../..
 ```
 
 Fine-tune on single GPU on single node:
