@@ -61,6 +61,14 @@ CUDA_VERSION=121 python setup.py install
 cd ..
 ```
 
+6. Compile Apex (for Flash attention, needs CUDA 11.7 above) [howto src](https://github.com/NVIDIA/apex/#linux)
+
+```bash
+git clone https://github.com/NVIDIA/apex
+cd apex
+pip install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
+```
+
 Fine-tune on single GPU on single node:
 ```
 torchrun finetune.py --base_model='EleutherAI/gpt-j-6B' --data_path=alpaca_data_cleaned.json 
