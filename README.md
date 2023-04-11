@@ -64,7 +64,7 @@ cd ..
 6. Add Flash Attention
 
 ```bash
-git clone https://github.com/HazyResearch/flash-attention.git
+git clone https://github.com/h2oai/flash-attention.git
 cd flash-attention
 python setup.py install
 cd csrc/layer_norm
